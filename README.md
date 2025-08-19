@@ -33,6 +33,14 @@ It includes a **symbol table** to keep track of identifiers, keywords, and other
 Make sure you have **Flex** and **GCC** installed. On Ubuntu/Debian:
 
 ```bash
-sudo apt-get install flex gcc```
+sudo apt-get install flex gcc
 
-Run the build manually:
+# Run the build manually:
+flex scanner.l
+gcc lex.yy.c
+./a.out <source_file.c>
+
+# Or simply use the provided script:
+chmod +x run.sh
+./run.sh
+
