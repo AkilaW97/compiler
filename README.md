@@ -7,23 +7,23 @@ It includes a **symbol table** to keep track of identifiers, keywords, and other
 
 ## 📂 Project Structure
 
-- **`scanner.l`**  
+- **scanner.l**  
   The Flex specification file that defines token rules and the logic for symbol table management.
 
-- **`lex.yy.c`**  
+- **lex.yy.c**  
   Auto-generated C source file produced by running `flex` on `scanner.l`.  
   ⚠️ Do not edit manually. Always regenerate using `flex scanner.l`.
 
-- **`a.out`**  
+- **a.out**  
   The compiled lexical analyzer executable (produced after running `gcc lex.yy.c`).
 
-- **`run.sh`**  
-  A Bash script that automates:
-  1. Generating `lex.yy.c` from `scanner.l`.
-  2. Compiling the scanner with `gcc`.
-  3. Running the executable on all test cases in the `tests/` folder:contentReference[oaicite:0]{index=0}.
+- **run.sh**  
+  A Bash script that automates:  
+  1. Generating `lex.yy.c` from `scanner.l`.  
+  2. Compiling the scanner with `gcc`.  
+  3. Running the executable on all test cases in the `tests/` folder.
 
-- **`tests/`**  
+- **tests/**  
   A directory containing `.c` test files. Each file is scanned to produce tokens and update the symbol table.
 
 ---
@@ -34,21 +34,3 @@ Make sure you have **Flex** and **GCC** installed. On Ubuntu/Debian:
 
 ```bash
 sudo apt-get install flex gcc
-
-  Then, run the build manually:
-
-flex scanner.l
-gcc lex.yy.c
-./a.out <source_file.c>
-
-Or simply use the provided script:
-
-chmod +x run.sh
-./run.sh
-
-This will automatically:
-
-Compile the scanner
-Run it on all test cases under tests/
-Make sure you have **Flex** and **GCC** installed. On Ubuntu/Debian:
-
